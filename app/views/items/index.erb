@@ -1,0 +1,8 @@
+<header class="break">
+  <h1>All House Plants!</h1>
+</header>
+
+  <% @items.each do |item| %>
+    <h2><%= item.title %> </h2>
+    <p><%= item.name %></p>
+  <% end %>
