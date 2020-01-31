@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>LoginOnlineSinatra</title>
+    <title>HousePlantShop</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -19,7 +19,11 @@
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2020 <strong>LoginOnlineSinatra</strong></small>
+        <small>&copy; 2020 <strong>HousePlantShop</strong></small>
+        <a href="/" class="button4" style="background-color:#69BBC9">Home</a>
+        <% if logged_in? %>
+          <a href="/logout" class="button4" style="background-color:#69BBC9">Logout</a>
+        <% end %>
       </footer>
     </div>
 
