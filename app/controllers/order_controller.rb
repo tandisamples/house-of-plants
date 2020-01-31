@@ -15,7 +15,7 @@ class OrderController < ApplicationController
     # make a post request to '/orders/new'
       get "/orders/new" do
         @items = Item.all 
-        erb :"orders/new"
+        erb :"/orders/new"
       end
     # Create 
     # make a post request to '/orders'
