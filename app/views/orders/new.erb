@@ -1,0 +1,10 @@
+<h1>All Plants!</h1>
+
+<form action="/orders" method="POST">
+
+  <% @items.each do |item| %>
+    <li><input type="checkbox" name="item_id[]" id="<%= item.id %>" value="<%=item.id %>"<%= item.title %> - $<% item.price %></li>
+  <% end %>
+
+  
+</form>
