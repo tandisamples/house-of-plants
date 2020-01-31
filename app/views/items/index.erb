@@ -3,6 +3,6 @@
 </header>
 
   <% @items.each do |item| %>
-    <h2><%= item.category.name == "small" %> </h2>
-    <p><%= item.name %> - $<%= item.price%></p>
+
+    <p><%= item.title %>: <%= item.name %> - $<%= item.price%></p>
   <% end %>
