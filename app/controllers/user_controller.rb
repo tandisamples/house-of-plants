@@ -15,10 +15,10 @@ end
     user = User.new(params)
     if user.save 
       session[:user_id] = user.id 
-    #  flash[:message] = "You've created a plant account."
+     flash[:message] = "You've created a plant account."
       redirect to "/items"
     else
-    #  flash[:error] = user.errors.full_messages
+      flash[:error] = user.errors.full_messages
       redirect to "/signup"
     end
   end

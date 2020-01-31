@@ -30,7 +30,7 @@ class ApplicationController < Sinatra::Base
     
     def redirect_if_not_logged_in
       if @order.user !=current_user
-      #  flash[:message] = "You cannot edit this order"
+        flash[:message] = "You cannot edit this order"
         redirect to "/orders"
     end
   end
