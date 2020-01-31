@@ -1,1 +1,17 @@
-Does this work?
+<header class="break">
+<h1><%= current_user.name %>'s Order History</h1>
+</header>
+<br>
+<br>
+
+
+<% if @orders.empty? %>
+    <p>Oh no! You do not have any orders. Let's create one <a href="/orders/new">here.</a></p>
+<% else %>
+    <ol>
+    <% @orders.each.with_index(1) do |order, i| %>
+        <li><a href="/orders/<%= order.id %>" class="button4" style="background-color:#69BBC9">Order No.<%= i %> </a></li>
+        <br>
+    <% end %>
+    </ol>
+<% end %>
