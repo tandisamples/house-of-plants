@@ -1,0 +1,22 @@
+<header class="break">
+<h1><%= current_user.name %>'s Plant Order</h1>
+</header>
+<br>
+<br>
+<ol>
+    <% @order.items.each do |item| %>
+        <li><%= item.title %> - $<%= item.price %></li>
+        <br>
+    <% end %>
+    
+    Your Total Price: $<%= @order.total_price%>
+    
+    <br>
+    <br>
+    
+    <p><a href="/orders/<%= @order.id %>/edit" class="button4" style="background-color:#69BBC9">Edit Your Order</a></p>
+    <form action="/orders/<%= @order.id %>" method="post">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <button type="submit" class="cool-button" style="background-color:#69BBC9">Delete Order</button>
+    </form>
+</ol>
