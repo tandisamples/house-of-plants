@@ -1,16 +1,14 @@
 class SessionController < ApplicationController
-    get "/login" do 
-        if logged_in?
-        redirect to "/"
-        end
-        erb :"/users/login"
+   get "/login" do
+        erb :'/users/login'
     end
-    
+
     post "/login" do
-        user = User.find_by(email: params[:email])
-        if user && user.authenticate(params[:password])
-            session[:user_id] = user.id
-            flash.next[:message] = "You've logged in."
+        @current_user = User.find_by(email: params[:email])
+        if @current_user && @current_user.authenticate(params[:password])
+            session[:user_id] = @current_user.id
+            session[:name] = @current_user.name
+            flash.next[:message] = "You are successfully logged in."
             redirect to "/"
         else
             if !user
@@ -19,17 +17,20 @@ class SessionController < ApplicationController
             end
         flash[:error] = user.errors.full_messages
         redirect to "/login"
-        end
+      end
     end
-
+    
     get "/logout" do
         if logged_in?
             session.clear
-            flash[:message] = "You've logged out."
+            flash[:message] = "You have successfully logged out. Have a nice day!"
         else
             redirect to "/"
         end
         redirect "/login"
     end
 
-end
+end    
+        
+        
+        

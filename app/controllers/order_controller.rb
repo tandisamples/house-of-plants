@@ -23,10 +23,10 @@ class OrderController < ApplicationController
     post "/orders" do
       order = current_user.orders.build(item_ids: params[:item_id])
     if order.save
-      flash[:message] = "You've created an order!"
+     # flash[:message] = "You've created an order!"
       redirect "/orders/#{order.id}"
     else
-      flash[:error] = order.errors.full_messages
+    #  flash[:error] = order.errors.full_messages
       redirect "/orders/new"
       end
     end 
@@ -67,7 +67,7 @@ class OrderController < ApplicationController
       @order = Order.find_by(id: params[:id])
       redirect_if_not_authorized
       if @order.update(item_ids: params[:item_id])
-      flash[:message] = "You've edited your order."
+     # flash[:message] = "You've edited your order."
       redirect to "/orders/#{@order.id}"
     end
       redirect to "/orders"
